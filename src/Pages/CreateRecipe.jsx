@@ -7,27 +7,29 @@ const CreateRecipe = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Recipe Submitted:", { title, ingredients, steps });
+    console.log({ title, ingredients, steps });
   };
 
   return (
-    <div>
-      <h2>Create Recipe</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label className="form-label">Title</label>
-          <input type="text" className="form-control" value={title} onChange={(e) => setTitle(e.target.value)} />
-        </div>
-        <div className="mb-3">
-          <label className="form-label">Ingredients (comma-separated)</label>
-          <input type="text" className="form-control" value={ingredients} onChange={(e) => setIngredients(e.target.value)} />
-        </div>
-        <div className="mb-3">
-          <label className="form-label">Steps</label>
-          <textarea className="form-control" value={steps} onChange={(e) => setSteps(e.target.value)}></textarea>
-        </div>
-        <button type="submit" className="btn btn-primary">Submit Recipe</button>
-      </form>
+    <div className="container mt-4">
+      <div className="card p-4 shadow">
+        <h2 className="text-center">Create Recipe</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="mb-3">
+            <label>Title:</label>
+            <input type="text" className="form-control" value={title} onChange={(e) => setTitle(e.target.value)} />
+          </div>
+          <div className="mb-3">
+            <label>Ingredients:</label>
+            <textarea className="form-control" value={ingredients} onChange={(e) => setIngredients(e.target.value)} />
+          </div>
+          <div className="mb-3">
+            <label>Steps:</label>
+            <textarea className="form-control" value={steps} onChange={(e) => setSteps(e.target.value)} />
+          </div>
+          <button type="submit" className="btn btn-success w-100">Submit Recipe</button>
+        </form>
+      </div>
     </div>
   );
 };
